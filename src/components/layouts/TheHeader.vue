@@ -2,26 +2,37 @@
   <div class="navbar navbar-default topnav">
     <div class="container">
       <div class="navbar-header">
-        <a href="/" class="navbar-brand">
+        <router-link to="/" class="navbar-brand">
           <span class="title">{{ logo.title }}</span>
           <img :src="logo.src" :alt="logo.title">
-        </a>
+        </router-link>
       </div>
 
-      <div id="top-navbar-collapse" class="collapse navbar-collapse">
+      <div id="top-navbar-collapse" :class="['collapse', 'navbar-collapse', { in: showCollapsedNav }]">
         <ul class="nav navbar-nav">
           <li v-for="(item, index) in navList" :class="{ active: index === activeNavIndex }">
             <a href="#" @click="changeNavIndex(index)">{{ item }}</a>
           </li>
         </ul>
+        <!-- 入口组件 -->
+        <div class="navbar-right">
+          <TheEntry/>
+        </div>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+// 引入 TheEntry.vue 的默认值
+import TheEntry from '@/components/layouts/TheEntry'
+
 export default {
   name: 'TheHeader',
+  // 添加 components 选项，并注册 TheEntry
+  components: {
+    TheEntry
+  },
   data() {
     return {
       logo: {
