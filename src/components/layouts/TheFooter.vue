@@ -4,15 +4,12 @@
       <div class="row footer-top">
         <div class="col-sm-5 col-lg-5">
           <p class="padding-top-xsm">{{ description }}</p>
-
           <div class="text-md">
             <a v-for="item in contacts" v-title="item.title" :href="item.link" :style="contactStyle" target="_blank">
               <i :class="`fa fa-${item.icon}`"></i>
             </a>
           </div>
-
           <br>
-
           <span v-html="designer"></span>
         </div>
 

@@ -7,7 +7,6 @@
           <img :src="logo.src" :alt="logo.title">
         </router-link>
       </div>
-
       <div id="top-navbar-collapse" :class="['collapse', 'navbar-collapse', { in: showCollapsedNav }]">
         <ul class="nav navbar-nav">
           <li v-for="(item, index) in navList" :class="{ active: index === activeNavIndex }">
@@ -21,6 +20,7 @@
       </div>
     </div>
   </div>
+  
 </template>
 
 <script>
@@ -57,4 +57,5 @@ export default {
 <style scoped>
 .title { display: none;}
 .navbar-default .navbar-nav > .active > a { background: rgba(0,0,0,.03);}
+.content-body {height: 600px;}
 </style>
